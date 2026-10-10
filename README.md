@@ -191,7 +191,7 @@ python parse_squincir.py        # 抓取页 -> data/squincir_n1_50.csv + 逐行�
 node verify67.mjs               # 67 格整数证书离线复核（只读 packing67.txt，纯整数）
 ```
 
-Markdown 数学定界符：GitHub 只渲染 `$...$` / `$$...$$`，不认 `\(...\)` / `\[...\]`。
+Markdown 数学定界符：GitHub 只渲染 `$...$` / `$$...$$`，不认 `\(...\)` 与 `\[...\]`（后者在本仓库一律写作 `$` 形式；代码块内的数学不渲染）。
 
 ---
 
