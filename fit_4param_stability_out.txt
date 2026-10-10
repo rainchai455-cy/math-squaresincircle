@@ -1,0 +1,48 @@
+[A] reproduce the reported rows
+window         c         d         f         g       RMS     cond |       r67       r68     step
+1-50      0.3683   -0.1350    0.2768   -0.3608   0.02379    225.4 |   4.97335   5.00776  0.03441
+        SE: c 0.0314 d 0.2642 f 0.6049 g 0.3835   | t: c 11.71 d -0.51 f 0.46 g -0.94
+        basis correlation n^-1/2 vs n^-1: 0.9595 | vs n^-3/2: 0.8828 | n^-1 vs n^-3/2: 0.9783
+10-50     0.0848    3.4118  -13.5560   16.4458   0.02113  11976.1 |   4.94740   4.98097  0.03358
+        SE: c 0.3417 d 4.8782 f 22.5252 g 33.6677   | t: c 0.25 d 0.70 f -0.60 g 0.49
+        reported c,d,f,g = 0.2246 0.6821 -2.5120 2.1190 RMS 0.0128  -> my coeffs differ by [ -0.1398   2.7297 -11.044   14.3268]
+        basis correlation n^-1/2 vs n^-1: 0.9940 | vs n^-3/2: 0.9771 | n^-1 vs n^-3/2: 0.9944
+20-50    -3.2200   59.6242 -328.5870  598.1075   0.01883 102250.2 |   4.86866   4.89739  0.02873
+        SE: c 1.8415 d 31.1143 f 173.5471 g 319.5738   | t: c -1.75 d 1.92 f -1.89 g 1.87
+        reported c,d,f,g = 0.2569 0.4215 -0.9380 0.2310 RMS 0.0104  -> my coeffs differ by [  -3.4769   59.2027 -327.649   597.8765]
+        basis correlation n^-1/2 vs n^-1: 0.9981 | vs n^-3/2: 0.9925 | n^-1 vs n^-3/2: 0.9981
+30-50   -36.7926  690.7743 -4270.3123 8775.9774   0.01457 753999.6 |   4.48333   4.48045 -0.00289
+        SE: c 9.8803 d 184.4912 f 1144.7724 g 2360.4959   | t: c -3.72 d 3.74 f -3.73 g 3.72
+        basis correlation n^-1/2 vs n^-1: 0.9994 | vs n^-3/2: 0.9976 | n^-1 vs n^-3/2: 0.9994
+
+[B] extrapolation leverage and prediction SE at 67/68 (2 sigma bands)
+    1-50   r67 4.97335 +-0.00835 (h=0.1) | r68 5.00776 +-0.00846 (h=0.1) | step 0.03441 +-0.00012
+           r68-5 = +0.00776 -> 0.92 SE ; |r68-5| vs its own SE: NOT resolved
+    10-50  r67 4.94740 +-0.02168 (h=1.0) | r68 4.98097 +-0.02246 (h=1.0) | step 0.03358 +-0.00082
+           r68-5 = -0.01903 -> -0.85 SE ; |r68-5| vs its own SE: NOT resolved
+    20-50  r67 4.86866 +-0.04914 (h=5.9) | r68 4.89739 +-0.05190 (h=6.6) | step 0.02873 +-0.00281
+           r68-5 = -0.10261 -> -1.98 SE ; |r68-5| vs its own SE: resolved
+    30-50  r67 4.48333 +-0.12469 (h=59.3) | r68 4.48045 +-0.13437 (h=68.9) | step -0.00289 +-0.00974
+           r68-5 = -0.51955 -> -3.87 SE ; |r68-5| vs its own SE: resolved
+
+[C] hold out the top and predict it (his experiment 3)
+    train  1-40 (40 pts) -> test 41-50: mean err +0.00924, RMS 0.02252, max|err| 0.04818
+    train  1-30 (30 pts) -> test 31-50: mean err +0.01131, RMS 0.02507, max|err| 0.05803
+    train  1-25 (25 pts) -> test 26-50: mean err +0.02592, RMS 0.03397, max|err| 0.07372
+
+[D] anchored refit: add (n=67, r=5) as a 51st data point
+    1-50   c=0.3776 d=-0.2052 f=0.4219 g=-0.4456 RMS 0.02382 | r67 4.97606 (anchor 5) | r68 5.01051 +-0.00802
+           err vs 5.031405 -0.02089 (-2.60 SE) ; err vs verified 5.052404 -0.04189 (-5.22 SE)
+    10-50  c=0.4583 d=-1.7591 f=9.5402 g=-16.9046 RMS 0.02167 | r67 4.97302 (anchor 5) | r68 5.00753 +-0.01648
+           err vs 5.031405 -0.02388 (-1.45 SE) ; err vs verified 5.052404 -0.04487 (-2.72 SE)
+    20-50  c=0.7816 d=-7.0891 f=38.1364 g=-66.8022 RMS 0.02053 | r67 4.98105 (anchor 5) | r68 5.01609 +-0.02144
+           err vs 5.031405 -0.01532 (-0.71 SE) ; err vs verified 5.052404 -0.03632 (-1.69 SE)
+
+[E] residual bootstrap of the r68 prediction (1000 draws, model 1-50)
+    median 5.00811  sd 0.00818  2.5%..97.5% 4.99180..5.02356  P(r68>5) = 0.848
+
+[F] the step r68-r67 against both ¿Ú¾¶s
+    1-50   model step 0.03441 | area step 0.03434 | "observed" with r68=5.031405: 0.03141 | with verified 5.052404: 0.05240
+    10-50  model step 0.03358 | area step 0.03434 | "observed" with r68=5.031405: 0.03141 | with verified 5.052404: 0.05240
+    20-50  model step 0.02873 | area step 0.03434 | "observed" with r68=5.031405: 0.03141 | with verified 5.052404: 0.05240
+    30-50  model step -0.00289 | area step 0.03434 | "observed" with r68=5.031405: 0.03141 | with verified 5.052404: 0.05240

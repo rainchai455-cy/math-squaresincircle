@@ -1,0 +1,59 @@
+# source : https://erich-friedman.github.io/packing/squincir/
+# retrieved 2026-10-10; raw html archived as squincir_raw.html, sha256=4d9e97663646870956c962cd2cd5f2ef786d492e390946e0ffa99403a107f56b
+# page statement: "Only the cases n=1-7 have been proved optimal"
+# SEMANTICS: r_decimal_printed is the radius of the SMALLEST KNOWN circle
+# holding n unit squares, i.e. a CONSTRUCTION => it UPPER-bounds r_n.
+# The page truncates the decimal and marks it "+", so r_n <= value + 5e-4.
+# No row here lower-bounds r_n; only n<=7 are proved, so only those rows
+# equal r_n. Rows n>=8 carry NO information about N(R).
+n,r_decimal_printed,truncated,page_decimals,closed_form,optimality,status
+1,.70710,yes,5,"1 / sqrt2",yes,Trivial
+2,1.11803,yes,5,"sqrt5 / 2",yes,Trivial
+3,1.28847,yes,5,"5 sqrt17 / 16",yes,Proved
+4,1.41421,yes,5,"sqrt2",yes,Proved
+5,1.58113,yes,5,"sqrt10 / 2",yes,Proved
+6,1.688,no,3,"-",yes,Proved
+7,1.80277,yes,5,"sqrt13 / 2",yes,Proved
+8,1.97877,yes,5,"-",no,Found
+9,2.07759,yes,5,"sqrt1105 / 16",no,Found
+10,2.12132,yes,5,"3 / sqrt2",no,Found
+11,2.21386,yes,5,"-",no,Found
+12,2.23606,yes,5,"sqrt5",no,Found
+13,2.3607,yes,4,"-",no,Found
+14,2.5,no,1,"5/2",no,Found
+15,2.533,yes,3,"-",no,Found
+16,2.62309,yes,5,"sqrt11009 / 40",no,Found
+17,2.67687,yes,5,"-",no,Found
+18,2.74146,yes,5,"sqrt481 / 8",no,Found
+19,2.80150,yes,5,"-",no,Found
+20,2.893,yes,3,"-",no,Found
+21,2.91547,yes,5,"sqrt34 / 2",no,Found
+22,3.03239,yes,5,"-",no,Found
+23,3.06738,yes,5,"-",no,Found
+24,3.10940,yes,5,"-",no,Found
+25,3.17450,yes,5,"-",no,Found
+26,3.20156,yes,5,"sqrt41 / 2",no,Found
+27,3.26050,yes,5,"-",no,Found
+28,3.33147,yes,5,"-",no,Found
+29,3.39309,yes,5,"-",no,Found
+30,3.45962,yes,5,"-",no,Found
+31,3.52279,yes,5,"-",no,Found
+32,3.57340,yes,5,"-",no,Found
+33,3.60010,yes,5,"-",no,Found
+34,3.62852,yes,5,"-",no,Found
+35,3.64005,yes,5,"sqrt53 / 2",no,Found
+36,3.72853,yes,5,"-",no,Found
+37,3.77126,yes,5,"-",no,Found
+38,3.83514,yes,5,"-",no,Found
+39,3.88461,yes,5,"-",no,Found
+40,3.93833,yes,5,"-",no,Found
+41,3.98879,yes,5,"-",no,Found
+42,4.03112,yes,5,"sqrt65/2",no,Found
+43,4.06733,yes,5,"-",no,Found
+44,4.09999,yes,5,"-",no,Found
+45,4.14067,yes,5,"-",no,Found
+46,4.16573,yes,5,"-",no,Found
+47,4.19870,yes,5,"-",no,Found
+48,4.25610,yes,5,"-",no,Found
+49,4.28307,yes,5,"-",no,Found
+50,4.30116,yes,5,"-",no,Found

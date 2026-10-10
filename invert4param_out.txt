@@ -1,0 +1,59 @@
+[P] algebra audit / round trip with the true 1-50 LSQ coefficients
+    LSQ 1-50   c=0.3683 d=-0.1350 f=0.2768 g=-0.3608  RMS=0.02379
+    n=4.0   model r=1.453263 -> invert: largest root n=4.000000 (1 positive roots)  err=-7.11e-15
+    n=50.0  model r=4.343123 -> invert: largest root n=50.000000 (1 positive roots)  err=-7.11e-15
+    n=67.0  model r=4.973348 -> invert: largest root n=67.000000 (1 positive roots)  err=2.84e-14
+    n=68.0  model r=5.007759 -> invert: largest root n=68.000000 (1 positive roots)  err=-1.14e-13
+
+[M] monotonicity of the model curve in x=sqrt(n)  (dr/dx=0 locations)
+    LSQ 1-50 sign-change x = [] -> n = []
+    model decreasing for n below the largest such n => "the positive root" is ambiguous when R is small
+
+[Q] N(R): largest-root vs literal max{n: model(n)<=R}, and root count
+    set                      r68      r69       r70       R=5 | R=4.99 | R=5.031405 | R=5.052404 (verified) | R=5.10
+    LSQ 1-50                   5.0078    5.0419   5.0758  67/1  67/1  68/1  69/1  70/1
+    LSQ 10-50                  4.9810    5.0143   5.0474  68/2  68/2  69/2  70/2  71/2
+    LSQ 20-50                  4.8974    4.9258   4.9539  71/2  71/2  72/2  73/2  75/2
+    LSQ 30-50                  4.4804    4.4764   4.4713  2899/2  2896/2  2908/2  2914/2  2928/2
+    anchored LSQ 1-50+67       5.0105    5.0447   5.0786  67/1  67/1  68/1  69/1  70/1
+    his exp1 (claims 10-50)    4.9266    4.9605   4.9942  70/2  69/2  71/2  71/2  73/2
+    his exp2 (claims 20-50)    4.9471    4.9810   5.0146  69/2  69/2  70/2  71/2  72/2
+    his 2-term+e/n (1-50)      5.0078    5.0419   5.0759  67/1  67/1  68/1  69/1  70/1
+    (cells are N(R)/#positive-roots)
+
+[Q2] agreement between the two definitions of N(R)
+    MISMATCH LSQ 30-50                R=5.000000 root 2899.724 vs integer-count 400 (count=381 set)
+    MISMATCH LSQ 30-50                R=4.990000 root 2896.872 vs integer-count 400 (count=381 set)
+    MISMATCH LSQ 30-50                R=5.031405 root 2908.684 vs integer-count 400 (count=381 set)
+    MISMATCH LSQ 30-50                R=5.052404 root 2914.676 vs integer-count 400 (count=381 set)
+    MISMATCH LSQ 30-50                R=5.100000 root 2928.261 vs integer-count 400 (count=381 set)
+    mismatches = 5 out of 40
+
+[S] truncation error of his asymptotic inversion (set = LSQ 1-50)
+    R                       pi(r-c)^2 with -d term    quartic    exact N
+    R=5                        67.396     67.876     67.774     67.000
+    R=4.99                     67.106     67.585     67.483     67.000
+    R=5.031405                 68.313     68.793     68.691     68.000
+    R=5.052404 (verified)      68.930     69.409     69.308     69.000
+    R=5.10                     70.338     70.817     70.717     70.000
+    R=r68(model)               67.622     68.102     68.000     68.000
+    => the 2-term closed form misses f,g; how much is a function of the window
+
+[S2] SE of N(5) by delta method (model-curve covariance)
+    1-50   N(5)=67.7739  dN/dc=-29.12 dN/dd=-3.54 dN/df=-0.43 dN/dg=-0.05  SE=0.246  -> 67/68 resolved? see value
+    10-50  N(5)=68.5700  dN/dc=-30.02 dN/dd=-3.63 dN/df=-0.44 dN/dg=-0.05  SE=0.688  -> 67/68 resolved? NO (SE covers 67.5)
+    20-50  N(5)=71.6592  dN/dc=-36.33 dN/dd=-4.29 dN/df=-0.51 dN/dg=-0.06  SE=2.261  -> 67/68 resolved? NO (SE covers 67.5)
+
+[T] tautology test on "N(5.031405) ~ 68 => the estimator works"
+    LSQ 1-50                 r68=5.00776 r69=5.04192 | 5.031405 inside [r68,r69): True  -> N=68 | verified inside: False -> N=69
+    LSQ 10-50                r68=4.98097 r69=5.01430 | 5.031405 inside [r68,r69): False -> N=69 | verified inside: False -> N=70
+    LSQ 20-50                r68=4.89739 r69=4.92581 | 5.031405 inside [r68,r69): False -> N=72 | verified inside: False -> N=73
+    LSQ 30-50                r68=4.48045 r69=4.47643 | 5.031405 inside [r68,r69): False -> N=400 | verified inside: False -> N=400
+    anchored LSQ 1-50+67     r68=5.01051 r69=5.04470 | 5.031405 inside [r68,r69): True  -> N=68 | verified inside: False -> N=69
+    his exp1 (claims 10-50)  r68=4.92658 r69=4.96052 | 5.031405 inside [r68,r69): False -> N=71 | verified inside: False -> N=71
+    his exp2 (claims 20-50)  r68=4.94706 r69=4.98096 | 5.031405 inside [r68,r69): False -> N=70 | verified inside: False -> N=71
+    his 2-term+e/n (1-50)    r68=5.00778 r69=5.04194 | 5.031405 inside [r68,r69): True  -> N=68 | verified inside: False -> N=69
+    N(R)=68 iff model(68)<=R<model(69); the window is one model step wide
+    print step width = r69-r68 = 0.03416 (area step 0.03408)
+    so feeding R=5.031405 (itself a claimed r68) and reading back 68 is a
+    round trip through the same model, not an independent check.

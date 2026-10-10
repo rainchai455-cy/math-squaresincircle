@@ -1,0 +1,27 @@
+[G] provenance gate on 5.031425
+    project verified r_68                 = 5.052404006121  (diff -0.020979)
+    established DERIVED quantity 5/0.993758 = 5.031406  (diff +1.90e-05)
+    reverse scale 5/VAL                   = 0.993754255
+    anchor + pure area step               = 5.034336  (diff -0.002911 = -0.0848 step)
+    implied excess c(68)=VAL-sqrt(68/pi)  = 0.378999  vs anchor c(67) 0.381909
+    observed step VAL-5 = 0.031425 vs area step 0.034336 -> ratio 0.9152
+    historical excess envelope (n=1..50)  = 0.388996
+
+                           | A: R(67)=5 hard anchor    | B: anchor as 51st pt     
+form                       |       err err/SE     da*  da*/SEa |       err err/SE     da*  da*/SEa
+F1  1/n                    |  0.002855  0.03  13.008    168.1 | -0.022275 -0.88  -1.515     67.2
+F2  1/sqrt(pi n)           |  0.002708  0.03   5.324     44.5 | -0.013679 -0.49  -0.200      4.6
+F3a 1/(pi n^2)             |  0.002909  0.03 1405.191   5383.4 | -0.029713 -1.19 -431.630   5651.0
+F3b sqrt(n/pi+1/(pi n^2))  |  0.002910  0.03 10426.100  29425.8 | -0.030585 -1.21 -4134.151  38860.0
+
+[same table, scored against the VERIFIED 5.052404006121 instead]
+F1  1/n                    A: -0.018124 (-0.19 SE) | B: -0.043254 (-1.71 SE)
+F2  1/sqrt(pi n)           A: -0.018271 (-0.19 SE) | B: -0.034658 (-1.23 SE)
+F3a 1/(pi n^2)             A: -0.018070 (-0.21 SE) | B: -0.050692 (-2.03 SE)
+F3b sqrt(n/pi+1/(pi n^2))  A: -0.018069 (-0.21 SE) | B: -0.051564 (-2.04 SE)
+
+[D] discrimination (prediction spread across forms vs distance to target)
+    A: span 2.02e-04 = 0.0059 step ; |err| 2.71e-03..2.91e-03
+    B: span 1.69e-02 = 0.4924 step ; |err| 1.37e-02..3.06e-02
+    A errors all +0.002708..+0.002910 ; B errors all -0.030585..-0.013679
+    => the target sits between the two treatments; it can rank forms, not settle the anchor treatment.
