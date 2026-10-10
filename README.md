@@ -1,6 +1,6 @@
 # square in circle 通项公式
 
-**署名**：1. GPT 2. Rain Chai
+**署名**：1. GPT 2. Rain Chai 3. Qwen
 
 圆内单位正方形的半径序列 $r_n$ ：通项拟合、反演，以及 67/68 临界行为。
 
