@@ -1,5 +1,7 @@
 # square in circle 通项公式
 
+**署名**：1. GPT 2. Rain Chai
+
 圆内单位正方形的半径序列 $r_n$ ：通项拟合、反演，以及 67/68 临界行为。
 
 数据源：Erich Friedman, *Squares in Circles* —— https://erich-friedman.github.io/packing/squincir/
