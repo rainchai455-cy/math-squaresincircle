@@ -1,6 +1,8 @@
-# square in circle 通项公式
+# On the General Formula for the Radius of the Smallest Circle Containing Multiple Standard Squares Inscribed Within a Circle
 
-**署名**：1. GPT 2. Rain Chai 3. Qwen
+## 关于包含圆内接多个标准正方形的最小圆半径的通用公式
+
+**作者**：1. GPT 2. Rain Chai 3. Qwen
 
 圆内单位正方形的半径序列 $r_n$ ：通项拟合、反演，以及 67/68 临界行为。
 
