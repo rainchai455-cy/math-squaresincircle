@@ -1,4 +1,11 @@
+# 仓库只跟踪文章与数据表；本地脚本、日志、候选产物一律不入库。
+/*
+!/.gitignore
+!/README.md
+!/fitting-audit-results.md
+!/data/
+/data/*
+!/data/squincir_n1_50.csv
 __pycache__/
 *.pyc
-img.rgb
 .DS_Store
